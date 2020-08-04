@@ -11,7 +11,7 @@ let port = process.env.PORT || 3000;
 
 let databaseURL = process.env.DATABASEURL;
 
-console.log(databaseURL);
+console.log(process.env);
 
 //user created
 const Campground = require("./models/campgrounds");
