@@ -32,7 +32,6 @@ const authRoutes = require("./routes/index");
 
 mongoose.connect('mongodb+srv://wbunin:yelpyelp11416@cluster0.q2ei7.mongodb.net/yelp_camp?retryWrites=true&w=majority', {
         useNewUrlParser: true,
-        useUnifiedTopology: true,
         useCreateIndex: true
     })
     .then(() => {
