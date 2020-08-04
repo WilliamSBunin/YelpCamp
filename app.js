@@ -6,6 +6,7 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const localStrategy = require("passport-local");
 const methodOverride = require("method-override");
+let port = process.env.PORT || 3000;
 
 //user created
 const Campground = require("./models/campgrounds");
@@ -86,6 +87,6 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 app.use("/campgrounds", campgroundsRoutes);
 app.use("/", authRoutes);
 
-app.listen(3000, function () {
+app.listen(port, function () {
     console.log("listening on port 3000");
 });
