@@ -6,7 +6,10 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const localStrategy = require("passport-local");
 const methodOverride = require("method-override");
+require('dotenv').config()
 let port = process.env.PORT || 3000;
+
+let databaseURL = process.env.DATABASEURL;
 
 //user created
 const Campground = require("./models/campgrounds");
@@ -19,18 +22,7 @@ const commentRoutes = require("./routes/comments");
 const campgroundsRoutes = require("./routes/campgrounds");
 const authRoutes = require("./routes/index");
 
-// mongoose.connect('mongodb://localhost:27017/yelp_camp', {
-//         useNewUrlParser: true,
-//         useUnifiedTopology: true
-//     })
-//     .then(() => {
-//         console.log('Connected to DB yelp_camp!')
-//     })
-//     .catch((error) => {
-//         console.log(error.message)
-//     });
-
-mongoose.connect('mongodb+srv://wbunin:yelpyelp11416@cluster0.q2ei7.mongodb.net/yelp_camp?retryWrites=true&w=majority', {
+mongoose.connect(databaseURL, {
         useNewUrlParser: true,
         useCreateIndex: true
     })
@@ -41,7 +33,6 @@ mongoose.connect('mongodb+srv://wbunin:yelpyelp11416@cluster0.q2ei7.mongodb.net/
         console.log(error.message);
     });
     
-
 mongoose.set('useFindAndModify', false);
 
 //flash messages. must be before passport configuration
